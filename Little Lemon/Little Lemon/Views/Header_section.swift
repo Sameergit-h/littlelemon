@@ -22,7 +22,8 @@ struct Header_section: View {
             }//VStack
 
         }//Navigation
-
+        //.frame(maxHeight: 60)
+        //.ignoresSafeArea()
     }//body
 }//struct
 

@@ -38,6 +38,7 @@ struct Hero_section: View {
                 //.padding([.top,.bottom],10)
                 .frame(maxHeight: 250)
                 .background(Color.gray)
+             //   .ignoresSafeArea()
             }
             
             

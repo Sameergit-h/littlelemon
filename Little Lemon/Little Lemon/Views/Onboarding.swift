@@ -20,20 +20,22 @@ struct Onboarding: View {
     @State var isLoggedIn = false
     
     var body: some View {
-        
-            NavigationView(){
+
+        NavigationStack(){
+            ScrollView(.vertical){
                 VStack{
                     //LittleLemonLogo()
                     Header_section()
                         .frame(maxHeight: 50,alignment: .top)
                     Hero_section()
-                    .frame(alignment: .topLeading)
-                    .padding(.bottom,10)
+                        .frame(alignment: .topLeading)
+                        .padding(.bottom,10)
                     VStack(alignment: .center){
                         
                         NavigationLink(destination: Home(),isActive: $isLoggedIn){
                             EmptyView()
                         }
+                        
                         ScrollView(.vertical,showsIndicators: false)
                         {
                             VStack(alignment: .listRowSeparatorLeading){
@@ -50,6 +52,7 @@ struct Onboarding: View {
                                 .textFieldStyle(.roundedBorder)
                             
                             Spacer()
+                            
                             Button(action: {
                                 if (firstName.isEmpty && lastName.isEmpty && email.isEmpty){
                                     //show error
@@ -68,13 +71,16 @@ struct Onboarding: View {
                         }//VStack
                     }//ScrollView
                 }
+                
             }//NavigationView
             .onAppear(){
                 if ((UserDefaults.standard.bool(forKey: kIsLoggedIn) == true)){
                     isLoggedIn = true
                 }
-            }
-        
+                
+            }//onAppear
+            .navigationBarBackButtonHidden(true)
+        }
     }//Body
 }//Struct
 

@@ -8,65 +8,111 @@
 import SwiftUI
 
 let checkIsLoggedIn = UserDefaults.standard.bool(forKey: kIsLoggedIn) == true
+var menuItems = [MenuItem] ()
 
 struct Menu: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @Published var menuItems = [MenuItem] ()
+    
     
     var categories = ["Starters", "Desserts", "Drinks", "Specials"]
+    @State var searchText = ""
+    @State var isListAdded = false
     
     
     var body: some View {
-        VStack{
-            NavigationView{
-                VStack(alignment: .leading){
-                    Text("Order for Delivery!")
-                        .font(.title2)
-                    ScrollView (.horizontal) {
-                        HStack {
-                            ForEach(categories) { category in
-                                Text(category)
-                                    .fixedSize()
-                            }
-                        }//Stack
-                    }//Scrollview
-                    List{
-                        
-                        ForEach(1...6, id: \.self){elementin in
-                            Text ("Dish \(elementin)")
-                            
+        
+        NavigationView{
+            VStack(alignment: .leading){
+                
+                //Search bar
+                TextField("Search menu", text: $searchText)
+                    .textFieldStyle(.roundedBorder)
+                    .cornerRadius(10)
+                    .padding(20)
+                    .background(Color.gray)
+                
+                
+                //Category Section
+                
+                Text("Order for Delivery!")
+                    .font(.title)
+                    .padding(20)
+                ScrollView (.horizontal) {
+                    HStack {
+                        ForEach(categories) { category in
+                            Text(category)
+                                .border(.black)
+                                .padding(.trailing,10)
                         }
-                        
-                        //NavigationLink(destination: FoodDetail(menuItem)) {
-                        //   FoodItem(menuItem)
-                        //  }
-                    }//list
-                }//VStack
-            }//navigation
-          //  .searchable(text: $searchText,prompt: "your search placeholder here...")
-            
-            
-        }//Vstack
+                    }//HStack
+                }//Scrollview
+                .font(.title3)
+                .padding([.leading,.trailing],20)
+                
+                //Menu List
+                
+                FetchedObjects(predicate: buildPredicate(),sortDescriptors: buildSortDescriptors()){
+                    (dishes: [Dish]) in
+                    List(){
+                        ForEach(dishes, id: \.self){ dish in
+                            NavigationLink(destination: MenuItemDetail(foodList: dish) ) {
+                                FoodItems(foodList: dish)
+                            }
+                        }//forEach
+                    }//List
+                    //.scrollContentBackground(.hidden)
+                }//FetchObject
+            }//VStack
+        }//navigation
         .onAppear()
         {
-            getMenuData()
-        }
+            if isListAdded == false {
+                getMenuData()
+                isListAdded = true
+            }
+        }//onAppear
     }//body
     
-    func getMenuData(){
+    private func getMenuData(){
+        PersistenceController.shared.clear()
+        
         let littleLemonAddress = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: littleLemonAddress)!
         let request = URLRequest(url: url)
+        print("JSON")
         let task = URLSession.shared.dataTask(with: request){ data, response, error in
             if let data = data {
-                let fullMenu = try? JSONDecoder().decode(MenuList.self, from: data)
-                menuItems = fullMenu
-            }
-        }
+                let fullMenu = try! JSONDecoder().decode(MenuList.self, from: data)
+                
+                //mapping menu items into database
+                
+                for dish in fullMenu.menu {
+                    let newDish = Dish(context: viewContext)
+                    newDish.title = dish.title
+                    newDish.descriptionText = dish.descriptionText
+                    newDish.price = String(dish.price)
+                    newDish.image = dish.image
+                    newDish.category = dish.category
+                }
+                try? viewContext.save()}
+        }//task
         task.resume()
-        
-    }
+    }//getMenuData
+    
+    private func buildPredicate() -> NSPredicate {
+        return searchText == "" ?
+        NSPredicate(value: true):
+        NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+    }//buildPredicate
+    
+    private func buildSortDescriptors() -> [NSSortDescriptor] {
+        return(
+        [NSSortDescriptor(key: "title",
+                          ascending: true,
+                          selector: #selector(NSString.localizedStandardCompare))]
+        )
+        }//buildSort
     
 }//struct
 

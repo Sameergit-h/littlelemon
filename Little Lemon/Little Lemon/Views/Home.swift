@@ -16,36 +16,27 @@ struct Home: View {
     @State var searchText = ""
     
     var body: some View {
-        
-        
-        ZStack(alignment: .leadingFirstTextBaseline){                NavigationStack{
-            
-            VStack(alignment: .leading){
-                
-                Header_section()
-                
-                //  .background(Color.cyan)
-                
-                Hero_section()
-                    .frame(alignment: .topLeading)
-                    
-                VStack{
-                    //Header_section()
-                    TextField("Search...", text: $searchText)
-                        .textFieldStyle(.roundedBorder)
-                        .foregroundColor(.gray)
-                }.padding(20)
-                    .background(Color.gray)
-                
-                Menu()
-                    .environment(\.managedObjectContext, persistence.container.viewContext)
-            }
-            
-        }//Navigation
-        .navigationBarBackButtonHidden(true)
-        .toolbar(.hidden, for: .navigationBar)
-            
-        }
+
+           // VStack(){
+                NavigationStack{
+                    VStack(alignment: .leading){
+                        VStack(){
+                            Header_section()
+                            
+                            VStack(alignment: .leading){
+                                Hero_section()
+                                    .frame(alignment: .topLeading)
+                                    .padding(.bottom,-10)
+                                    .background(Color.gray)
+                            }
+                        }
+                        Menu()
+                            .environment(\.managedObjectContext, persistence.container.viewContext)
+                    }
+                }//Navigation
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitleDisplayMode(.inline)
+    //    }//VStack
     }//body
 }//struct
 

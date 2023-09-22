@@ -9,7 +9,16 @@ import Foundation
 
 struct MenuItem: Decodable {
     let title: String
-    let price: Float
-    let description: String?
+    let descriptionText: String
+    let price: String
     let image: String
+    let category: String
+
+    enum CodingKeys: String, CodingKey{
+        case title = "title"
+        case descriptionText = "description"
+        case price = "price"
+        case image = "image"
+        case category = "category"
+    }
 }

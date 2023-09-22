@@ -12,6 +12,10 @@
 		425FA1282AB8F99D00467292 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA1272AB8F99D00467292 /* Home.swift */; };
 		425FA12A2AB8FB2B00467292 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA1292AB8FB2B00467292 /* Menu.swift */; };
 		425FA12C2AB9037100467292 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA12B2AB9037100467292 /* UserProfile.swift */; };
+		42636E622ABE3EF0000787C6 /* Dish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42636E602ABE3EF0000787C6 /* Dish+CoreDataClass.swift */; };
+		42636E632ABE3EF0000787C6 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42636E612ABE3EF0000787C6 /* Dish+CoreDataProperties.swift */; };
+		42636E652ABE5095000787C6 /* FoodItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42636E642ABE5095000787C6 /* FoodItems.swift */; };
+		42636E672ABE50BF000787C6 /* MenuItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42636E662ABE50BF000787C6 /* MenuItemDetail.swift */; };
 		4275DB162AB9B9B900111706 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB142AB9B9B900111706 /* FetchedObjects.swift */; };
 		4275DB172AB9B9B900111706 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB152AB9B9B900111706 /* Persistence.swift */; };
 		4275DB1C2AB9BB1D00111706 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB1A2AB9BB1D00111706 /* ExampleDatabase.xcdatamodeld */; };
@@ -35,6 +39,10 @@
 		425FA1272AB8F99D00467292 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		425FA1292AB8FB2B00467292 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		425FA12B2AB9037100467292 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		42636E602ABE3EF0000787C6 /* Dish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42636E612ABE3EF0000787C6 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42636E642ABE5095000787C6 /* FoodItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItems.swift; sourceTree = "<group>"; };
+		42636E662ABE50BF000787C6 /* MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetail.swift; sourceTree = "<group>"; };
 		4275DB142AB9B9B900111706 /* FetchedObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 		4275DB152AB9B9B900111706 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4275DB1B2AB9BB1D00111706 /* LittleLemon_Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleLemon_Model.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +75,8 @@
 		4275DB182AB9B9C500111706 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				42636E602ABE3EF0000787C6 /* Dish+CoreDataClass.swift */,
+				42636E612ABE3EF0000787C6 /* Dish+CoreDataProperties.swift */,
 				4275DB142AB9B9B900111706 /* FetchedObjects.swift */,
 				4275DB152AB9B9B900111706 /* Persistence.swift */,
 				4275DB1A2AB9BB1D00111706 /* ExampleDatabase.xcdatamodeld */,
@@ -80,11 +90,12 @@
 				425FA1252AB8EC6400467292 /* Onboarding.swift */,
 				425FA1272AB8F99D00467292 /* Home.swift */,
 				425FA12B2AB9037100467292 /* UserProfile.swift */,
-				4275DB232ABA1E0F00111706 /* ChecboxButton.swift */,
 				4275DB1D2AB9BBDE00111706 /* LittleLemonLogo.swift */,
 				4275DB212AB9FC6900111706 /* Header_section.swift */,
 				4275DB1F2AB9BF5800111706 /* Hero_section.swift */,
 				425FA1292AB8FB2B00467292 /* Menu.swift */,
+				42636E642ABE5095000787C6 /* FoodItems.swift */,
+				42636E662ABE50BF000787C6 /* MenuItemDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,6 +103,7 @@
 		4275DB252ABA2EBB00111706 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				4275DB232ABA1E0F00111706 /* ChecboxButton.swift */,
 				4275DB262ABA2F1100111706 /* Fonts.swift */,
 				4275DB282ABA2F4A00111706 /* Colors.swift */,
 				4275DB2A2ABA2F7700111706 /* Buttons_style.swift */,
@@ -217,13 +229,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42636E672ABE50BF000787C6 /* MenuItemDetail.swift in Sources */,
 				4275DB1E2AB9BBDE00111706 /* LittleLemonLogo.swift in Sources */,
 				4275DB272ABA2F1100111706 /* Fonts.swift in Sources */,
 				4275DB172AB9B9B900111706 /* Persistence.swift in Sources */,
 				425FA12A2AB8FB2B00467292 /* Menu.swift in Sources */,
 				425FA1222AB8EADA00467292 /* DishesModel.swift in Sources */,
+				42636E652ABE5095000787C6 /* FoodItems.swift in Sources */,
 				4275DB242ABA1E0F00111706 /* ChecboxButton.swift in Sources */,
 				425FA12C2AB9037100467292 /* UserProfile.swift in Sources */,
+				42636E632ABE3EF0000787C6 /* Dish+CoreDataProperties.swift in Sources */,
 				425FA1262AB8EC6400467292 /* Onboarding.swift in Sources */,
 				4275DB162AB9B9B900111706 /* FetchedObjects.swift in Sources */,
 				4275DB292ABA2F4A00111706 /* Colors.swift in Sources */,
@@ -231,6 +246,7 @@
 				4275DB2B2ABA2F7700111706 /* Buttons_style.swift in Sources */,
 				4275DB222AB9FC6900111706 /* Header_section.swift in Sources */,
 				42B5889B2AB856B100D9711F /* Little_LemonApp.swift in Sources */,
+				42636E622ABE3EF0000787C6 /* Dish+CoreDataClass.swift in Sources */,
 				4275DB1C2AB9BB1D00111706 /* ExampleDatabase.xcdatamodeld in Sources */,
 				4275DB2D2ABA2FD600111706 /* MenuList.swift in Sources */,
 				4275DB202AB9BF5800111706 /* Hero_section.swift in Sources */,
