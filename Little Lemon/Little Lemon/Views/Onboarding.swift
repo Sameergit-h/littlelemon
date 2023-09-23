@@ -20,67 +20,73 @@ struct Onboarding: View {
     @State var isLoggedIn = false
     
     var body: some View {
-
+        
         NavigationStack(){
             ScrollView(.vertical){
                 VStack{
-                    //LittleLemonLogo()
-                    Header_section()
+                    Header_section(enableBackButton: false)
                         .frame(maxHeight: 50,alignment: .top)
+                        
                     Hero_section()
                         .frame(alignment: .topLeading)
                         .padding(.bottom,10)
                     VStack(alignment: .center){
                         
-                        NavigationLink(destination: Home(),isActive: $isLoggedIn){
-                            EmptyView()
-                        }
+                    }
+                    
+                    ScrollView(.vertical,showsIndicators: false)
+                    {
+                        VStack(alignment: .listRowSeparatorLeading){
+                            Text("First Name *")
+                                .font(.title3)
+                            TextField("First Name", text: $firstName)
+                            Text("Last Name *")
+                                .font(.title3)
+                            TextField("Last Name", text: $lastName)
+                            Text("Email *")
+                                .font(.title3)
+                            TextField("Email", text: $email)
+                        }.padding()
+                            .textFieldStyle(.roundedBorder)
                         
-                        ScrollView(.vertical,showsIndicators: false)
-                        {
-                            VStack(alignment: .listRowSeparatorLeading){
-                                Text("First Name *")
-                                    .font(.title3)
-                                TextField("First Name", text: $firstName)
-                                Text("Last Name *")
-                                    .font(.title3)
-                                TextField("Last Name", text: $lastName)
-                                Text("Email *")
-                                    .font(.title3)
-                                TextField("Email", text: $email)
-                            }.padding()
-                                .textFieldStyle(.roundedBorder)
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                if (firstName.isEmpty && lastName.isEmpty && email.isEmpty){
-                                    //show error
-                                    
-                                } else{
-                                    UserDefaults.standard.set(firstName, forKey: kFirstName)
-                                    UserDefaults.standard.set(lastName, forKey: kLastName)
-                                    UserDefaults.standard.set(email, forKey: kEmail)
-                                    isLoggedIn = true
-                                    UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
-                                }//else
+                        Spacer()
+                        
+                        Button(action: {
+                            if (firstName.isEmpty && lastName.isEmpty && email.isEmpty){
+                                //show error
                                 
-                            }, label: {Text("Register")})//button
-                            .padding(20)
+                            } else{
+                                UserDefaults.standard.set(firstName, forKey: kFirstName)
+                                UserDefaults.standard.set(lastName, forKey: kLastName)
+                                UserDefaults.standard.set(email, forKey: kEmail)
+                                isLoggedIn = true
+                                UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
+                                print("button pressed")
+                            }//else
                             
-                        }//VStack
-                    }//ScrollView
-                }
-                
-            }//NavigationView
-            .onAppear(){
-                if ((UserDefaults.standard.bool(forKey: kIsLoggedIn) == true)){
-                    isLoggedIn = true
-                }
-                
-            }//onAppear
-            .navigationBarBackButtonHidden(true)
-        }
+                        }, label: {Text("Register")})//button
+                        .buttonStyle(YellowButton())
+                    }//ScrollViewInside
+                }//VStack
+            }//ScrollView
+            .navigationDestination(isPresented: $isLoggedIn){
+                Home()
+            }
+            
+            
+        }//NavigationView
+        .onAppear(){
+            if ((UserDefaults.standard.bool(forKey: kIsLoggedIn) == true)){
+                isLoggedIn = true
+                print("onAppear")
+            }else {
+                isLoggedIn = false
+                print("Else OnAppear")
+            }
+            
+        }//onAppear
+        .navigationBarBackButtonHidden(true)
+        
     }//Body
 }//Struct
 

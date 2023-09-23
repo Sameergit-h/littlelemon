@@ -30,7 +30,7 @@ struct Menu: View {
                     .textFieldStyle(.roundedBorder)
                     .cornerRadius(10)
                     .padding(20)
-                    .background(Color.gray)
+                    .background(Color("PrimaryColor1"))
                 
                 
                 //Category Section
@@ -61,7 +61,10 @@ struct Menu: View {
                             }
                         }//forEach
                     }//List
-                    //.scrollContentBackground(.hidden)
+                    .listStyle(.plain)
+                    .padding(.leading,-10)
+                    .padding(.trailing,10)
+                    
                 }//FetchObject
             }//VStack
         }//navigation
@@ -80,7 +83,7 @@ struct Menu: View {
         let littleLemonAddress = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: littleLemonAddress)!
         let request = URLRequest(url: url)
-        print("JSON")
+
         let task = URLSession.shared.dataTask(with: request){ data, response, error in
             if let data = data {
                 let fullMenu = try! JSONDecoder().decode(MenuList.self, from: data)

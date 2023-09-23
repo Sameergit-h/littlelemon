@@ -30,11 +30,12 @@ struct FoodItems: View {
                 Spacer()
                 AsyncImage(url: URL(string: foodList.image ?? "")){ image in
                     image.resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
+                        
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 70, height: 100)
+                .frame(width: 70, height: 80)
                 
             }
         }

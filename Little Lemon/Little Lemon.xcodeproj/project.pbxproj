@@ -23,9 +23,9 @@
 		4275DB202AB9BF5800111706 /* Hero_section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB1F2AB9BF5800111706 /* Hero_section.swift */; };
 		4275DB222AB9FC6900111706 /* Header_section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB212AB9FC6900111706 /* Header_section.swift */; };
 		4275DB242ABA1E0F00111706 /* ChecboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB232ABA1E0F00111706 /* ChecboxButton.swift */; };
-		4275DB272ABA2F1100111706 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB262ABA2F1100111706 /* Fonts.swift */; };
-		4275DB292ABA2F4A00111706 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB282ABA2F4A00111706 /* Colors.swift */; };
-		4275DB2B2ABA2F7700111706 /* Buttons_style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB2A2ABA2F7700111706 /* Buttons_style.swift */; };
+		4275DB272ABA2F1100111706 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB262ABA2F1100111706 /* FontStyle.swift */; };
+		4275DB292ABA2F4A00111706 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB282ABA2F4A00111706 /* ColorStyle.swift */; };
+		4275DB2B2ABA2F7700111706 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB2A2ABA2F7700111706 /* ButtonStyle.swift */; };
 		4275DB2D2ABA2FD600111706 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB2C2ABA2FD600111706 /* MenuList.swift */; };
 		4275DB2F2ABA2FE400111706 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275DB2E2ABA2FE400111706 /* MenuItem.swift */; };
 		42B5889B2AB856B100D9711F /* Little_LemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5889A2AB856B100D9711F /* Little_LemonApp.swift */; };
@@ -50,9 +50,9 @@
 		4275DB1F2AB9BF5800111706 /* Hero_section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero_section.swift; sourceTree = "<group>"; };
 		4275DB212AB9FC6900111706 /* Header_section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header_section.swift; sourceTree = "<group>"; };
 		4275DB232ABA1E0F00111706 /* ChecboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecboxButton.swift; sourceTree = "<group>"; };
-		4275DB262ABA2F1100111706 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		4275DB282ABA2F4A00111706 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		4275DB2A2ABA2F7700111706 /* Buttons_style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons_style.swift; sourceTree = "<group>"; };
+		4275DB262ABA2F1100111706 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		4275DB282ABA2F4A00111706 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
+		4275DB2A2ABA2F7700111706 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		4275DB2C2ABA2FD600111706 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		4275DB2E2ABA2FE400111706 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		42B588972AB856B100D9711F /* Little Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Lemon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,9 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				4275DB232ABA1E0F00111706 /* ChecboxButton.swift */,
-				4275DB262ABA2F1100111706 /* Fonts.swift */,
-				4275DB282ABA2F4A00111706 /* Colors.swift */,
-				4275DB2A2ABA2F7700111706 /* Buttons_style.swift */,
+				4275DB262ABA2F1100111706 /* FontStyle.swift */,
+				4275DB282ABA2F4A00111706 /* ColorStyle.swift */,
+				4275DB2A2ABA2F7700111706 /* ButtonStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			files = (
 				42636E672ABE50BF000787C6 /* MenuItemDetail.swift in Sources */,
 				4275DB1E2AB9BBDE00111706 /* LittleLemonLogo.swift in Sources */,
-				4275DB272ABA2F1100111706 /* Fonts.swift in Sources */,
+				4275DB272ABA2F1100111706 /* FontStyle.swift in Sources */,
 				4275DB172AB9B9B900111706 /* Persistence.swift in Sources */,
 				425FA12A2AB8FB2B00467292 /* Menu.swift in Sources */,
 				425FA1222AB8EADA00467292 /* DishesModel.swift in Sources */,
@@ -241,9 +241,9 @@
 				42636E632ABE3EF0000787C6 /* Dish+CoreDataProperties.swift in Sources */,
 				425FA1262AB8EC6400467292 /* Onboarding.swift in Sources */,
 				4275DB162AB9B9B900111706 /* FetchedObjects.swift in Sources */,
-				4275DB292ABA2F4A00111706 /* Colors.swift in Sources */,
+				4275DB292ABA2F4A00111706 /* ColorStyle.swift in Sources */,
 				425FA1282AB8F99D00467292 /* Home.swift in Sources */,
-				4275DB2B2ABA2F7700111706 /* Buttons_style.swift in Sources */,
+				4275DB2B2ABA2F7700111706 /* ButtonStyle.swift in Sources */,
 				4275DB222AB9FC6900111706 /* Header_section.swift in Sources */,
 				42B5889B2AB856B100D9711F /* Little_LemonApp.swift in Sources */,
 				42636E622ABE3EF0000787C6 /* Dish+CoreDataClass.swift in Sources */,
