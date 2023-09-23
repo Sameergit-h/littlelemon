@@ -10,7 +10,7 @@ struct Hero_section: View {
                 Text("Little Lemon")
                     .font(.custom("AppTitle", size: 48))
                     .frame(alignment: .leading)
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.PrimaryColor2)
                 HStack{
                     VStack(alignment: .leading){
                         
@@ -35,9 +35,9 @@ struct Hero_section: View {
                 }
             }
                 .padding([.leading,.trailing],20)
-                //.padding([.top,.bottom],10)
+                
                 .frame(maxHeight: 250)
-                .background(Color.gray)
+                .background(Color("PrimaryColor1"))
              //   .ignoresSafeArea()
             }
             

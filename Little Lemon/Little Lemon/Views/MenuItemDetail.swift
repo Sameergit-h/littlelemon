@@ -15,7 +15,7 @@ struct MenuItemDetail: View {
     var body: some View {
         VStack{
             
-            Header_section()
+            Header_section(enableBackButton: true)
             AsyncImage(url: URL(string: foodList.image ?? "")){ image in
                 image.resizable()
             } placeholder: {
@@ -34,9 +34,10 @@ struct MenuItemDetail: View {
                     {},
                    label: {
                         Text("Confirm Order")
+                    
             })
-            
-        }
+            .buttonStyle(YellowButton())
+        }.toolbar(.hidden)
     }
 }
 

@@ -21,13 +21,13 @@ struct Home: View {
                 NavigationStack{
                     VStack(alignment: .leading){
                         VStack(){
-                            Header_section()
+                            Header_section(enableBackButton: false)
                             
                             VStack(alignment: .leading){
                                 Hero_section()
                                     .frame(alignment: .topLeading)
                                     .padding(.bottom,-10)
-                                    .background(Color.gray)
+
                             }
                         }
                         Menu()
