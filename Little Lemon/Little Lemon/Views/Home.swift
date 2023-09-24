@@ -17,17 +17,16 @@ struct Home: View {
     
     var body: some View {
 
-           // VStack(){
                 NavigationStack{
                     VStack(alignment: .leading){
                         VStack(){
                             Header_section(enableBackButton: false)
+                                .padding(.bottom,-30)
                             
                             VStack(alignment: .leading){
                                 Hero_section()
                                     .frame(alignment: .topLeading)
                                     .padding(.bottom,-10)
-
                             }
                         }
                         Menu()
@@ -36,7 +35,6 @@ struct Home: View {
                 }//Navigation
                 .navigationBarBackButtonHidden(true)
                 .navigationBarTitleDisplayMode(.inline)
-    //    }//VStack
     }//body
 }//struct
 

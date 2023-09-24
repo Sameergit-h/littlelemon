@@ -11,8 +11,8 @@ struct YellowButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: 360,height: 50,alignment: .center)
-            .background(Color("PrimaryColor2"))
-            .foregroundColor(.black)
+            .background(Color(configuration.isPressed ? "PrimaryColor1" : "PrimaryColor2"))
+            .foregroundColor(configuration.isPressed ? .white : .black)
             .cornerRadius(8)
             .padding()
     }

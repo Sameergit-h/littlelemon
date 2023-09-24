@@ -12,46 +12,52 @@ extension Font {
     
     static func DisplayTitle() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("MarkaziText-Medium", size: 62)
             )
     }
     static func SubTitle() -> Font {
         return (
-            Font.custom("Makazi Text", size: 40)
+            Font.custom("MarkaziText-Regular", size: 40)
+                //.weight(.regular)
             )
     }
     static func LeadText() -> Font {
         return (
-            Font.custom("Karla Text", size: 18)
-            .weight(.medium)
+            Font.custom("Karla-VariableFont_wght", size: 18)
+            //.weight(.medium)
             )
     }
     
 
     static func SectionTitle() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("Karla-VariableFont_wght", size: 20)
+                .weight(.bold)
             )
     }
     static func SectionCategory() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("Karla-VariableFont_wght", size: 16)
+                .weight(.bold)
             )
     }
     
     static func CardTitle() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("Karla-VariableFont_wght", size: 18)
+                .weight(.bold)
             )
     }
     static func paragraph() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("Karla-VariableFont_wght", size: 16)
+                .weight(.regular)
             )
     }
     static func HighlightText() -> Font {
         return (
-            Font.custom("Makazi Text", size: 42)
+            Font.custom("Karla-VariableFont_wght", size: 18)
+                .weight(.bold)
             )
     }
    

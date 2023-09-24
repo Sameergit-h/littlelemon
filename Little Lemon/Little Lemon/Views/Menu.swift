@@ -19,6 +19,15 @@ struct Menu: View {
     @State var searchText = ""
     @State var isListAdded = false
     
+    @State var isStartersOptionOn = true
+    @State var isDessertsOptionOn = true
+    @State var isDrinksOptionOn = true
+    @State var isSpecialsOptionOn = true
+    
+    
+    init() {
+            UITextField.appearance().clearButtonMode = .whileEditing
+        }
     
     var body: some View {
         
@@ -29,26 +38,35 @@ struct Menu: View {
                 TextField("Search menu", text: $searchText)
                     .textFieldStyle(.roundedBorder)
                     .cornerRadius(10)
-                    .padding(20)
+                    .padding(10)
+                    .padding(.bottom,10)
                     .background(Color("PrimaryColor1"))
                 
                 
                 //Category Section
                 
-                Text("Order for Delivery!")
-                    .font(.title)
-                    .padding(20)
+                Text("ORDER FOR DELIVERY!")
+                    .font(.SectionTitle())
+                    
+                    .padding([.vertical],20)
+                    .padding(.horizontal,20)
+                    .foregroundColor(.black)
+                
                 ScrollView (.horizontal) {
                     HStack {
                         ForEach(categories) { category in
                             Text(category)
                                 .border(.black)
                                 .padding(.trailing,10)
+                                
                         }
                     }//HStack
                 }//Scrollview
-                .font(.title3)
+                .font(.SectionTitle())
                 .padding([.leading,.trailing],20)
+                .padding(.bottom,10)
+                
+                Divider()
                 
                 //Menu List
                 
