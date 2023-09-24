@@ -21,6 +21,7 @@ struct ChecboxButton: ToggleStyle {
                 Image(systemName: configuration.isOn ? "checkmark.square" : "square")
                 
                 configuration.label
+                    .foregroundColor(.PrimaryColor1)
             }
         })
         

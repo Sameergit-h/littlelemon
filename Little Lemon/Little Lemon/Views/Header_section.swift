@@ -20,7 +20,6 @@ struct Header_section: View {
                         },
                                 label: {
                             Image("Back Button")
-                            .resizable()
                             .frame(width: 40,height: 40)
                             .foregroundColor(.HighlightColor2)
                         })
@@ -40,6 +39,7 @@ struct Header_section: View {
             }//VStack
         }//Navigation
         .padding(.top,-8)
+        .padding(.bottom,10)
     }//body
 }//struct
 

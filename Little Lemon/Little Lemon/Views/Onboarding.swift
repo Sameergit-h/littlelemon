@@ -23,51 +23,50 @@ struct Onboarding: View {
         
         NavigationStack(){
             ScrollView(.vertical){
-                VStack{
-                    Header_section(enableBackButton: false)
-                        .frame(maxHeight: 50,alignment: .top)
+                HStack(alignment: .top){
+                    VStack{
+                        Header_section(enableBackButton: false)
+                            .frame(maxHeight: 50,alignment: .top)
+                            .padding(.bottom,-30)
+                        Hero_section()
+                            .frame(alignment: .top)
+                            .padding(.bottom,10)
                         
-                    Hero_section()
-                        .frame(alignment: .topLeading)
-                        .padding(.bottom,10)
-                    VStack(alignment: .center){
-                        
-                    }
-                    
-                    ScrollView(.vertical,showsIndicators: false)
-                    {
-                        VStack(alignment: .listRowSeparatorLeading){
-                            Text("First Name *")
-                                .font(.title3)
-                            TextField("First Name", text: $firstName)
-                            Text("Last Name *")
-                                .font(.title3)
-                            TextField("Last Name", text: $lastName)
-                            Text("Email *")
-                                .font(.title3)
-                            TextField("Email", text: $email)
-                        }.padding()
-                            .textFieldStyle(.roundedBorder)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            if (firstName.isEmpty && lastName.isEmpty && email.isEmpty){
-                                //show error
-                                
-                            } else{
-                                UserDefaults.standard.set(firstName, forKey: kFirstName)
-                                UserDefaults.standard.set(lastName, forKey: kLastName)
-                                UserDefaults.standard.set(email, forKey: kEmail)
-                                isLoggedIn = true
-                                UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
-                                print("button pressed")
-                            }//else
+                        ScrollView(.vertical,showsIndicators: false)
+                        {
+                            VStack(alignment: .listRowSeparatorLeading){
+                                Text("First Name *")
+                                    .font(.title3)
+                                TextField("First Name", text: $firstName)
+                                Text("Last Name *")
+                                    .font(.title3)
+                                TextField("Last Name", text: $lastName)
+                                Text("Email *")
+                                    .font(.title3)
+                                TextField("Email", text: $email)
+                            }.padding()
+                                .textFieldStyle(.roundedBorder)
                             
-                        }, label: {Text("Register")})//button
-                        .buttonStyle(YellowButton())
-                    }//ScrollViewInside
-                }//VStack
+                            Spacer()
+                            
+                            Button(action: {
+                                if (firstName.isEmpty && lastName.isEmpty && email.isEmpty){
+                                    //show error
+                                    
+                                } else{
+                                    UserDefaults.standard.set(firstName, forKey: kFirstName)
+                                    UserDefaults.standard.set(lastName, forKey: kLastName)
+                                    UserDefaults.standard.set(email, forKey: kEmail)
+                                    isLoggedIn = true
+                                    UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
+                                    print("button pressed")
+                                }//else
+                                
+                            }, label: {Text("Register")})//button
+                            .buttonStyle(YellowButton())
+                        }//ScrollViewInside
+                    }//VStack
+                }
             }//ScrollView
             .navigationDestination(isPresented: $isLoggedIn){
                 Home()

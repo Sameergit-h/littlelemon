@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423EBAE82AC0A5F30025FBE2 /* ImageStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EBAE72AC0A5F30025FBE2 /* ImageStyles.swift */; };
+		423EBAEC2AC0AD640025FBE2 /* MarkaziText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAEB2AC0AD640025FBE2 /* MarkaziText-Medium.ttf */; };
+		423EBAF02AC0AF1C0025FBE2 /* MarkaziText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAEE2AC0AF1C0025FBE2 /* MarkaziText-SemiBold.ttf */; };
+		423EBAF12AC0AF1C0025FBE2 /* MarkaziText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAEF2AC0AF1C0025FBE2 /* MarkaziText-Bold.ttf */; };
+		423EBAF32AC0AF270025FBE2 /* MarkaziText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAF22AC0AF270025FBE2 /* MarkaziText-Regular.ttf */; };
+		423EBAF52AC0AF2F0025FBE2 /* MarkaziText-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAF42AC0AF2F0025FBE2 /* MarkaziText-VariableFont_wght.ttf */; };
+		423EBAF92AC0B19A0025FBE2 /* Karla-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAF72AC0B19A0025FBE2 /* Karla-Italic-VariableFont_wght.ttf */; };
+		423EBAFA2AC0B19A0025FBE2 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 423EBAF82AC0B19A0025FBE2 /* Karla-VariableFont_wght.ttf */; };
+		423EBAFC2AC0B9C70025FBE2 /* section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EBAFB2AC0B9C70025FBE2 /* section.swift */; };
 		425FA1222AB8EADA00467292 /* DishesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA1212AB8EADA00467292 /* DishesModel.swift */; };
 		425FA1262AB8EC6400467292 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA1252AB8EC6400467292 /* Onboarding.swift */; };
 		425FA1282AB8F99D00467292 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA1272AB8F99D00467292 /* Home.swift */; };
@@ -34,6 +43,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		423EBAE72AC0A5F30025FBE2 /* ImageStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyles.swift; sourceTree = "<group>"; };
+		423EBAEB2AC0AD640025FBE2 /* MarkaziText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Medium.ttf"; sourceTree = "<group>"; };
+		423EBAED2AC0AEED0025FBE2 /* Little-Lemon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Little-Lemon-Info.plist"; sourceTree = SOURCE_ROOT; };
+		423EBAEE2AC0AF1C0025FBE2 /* MarkaziText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-SemiBold.ttf"; sourceTree = "<group>"; };
+		423EBAEF2AC0AF1C0025FBE2 /* MarkaziText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Bold.ttf"; sourceTree = "<group>"; };
+		423EBAF22AC0AF270025FBE2 /* MarkaziText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Regular.ttf"; sourceTree = "<group>"; };
+		423EBAF42AC0AF2F0025FBE2 /* MarkaziText-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		423EBAF72AC0B19A0025FBE2 /* Karla-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		423EBAF82AC0B19A0025FBE2 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		423EBAFB2AC0B9C70025FBE2 /* section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = section.swift; sourceTree = "<group>"; };
 		425FA1212AB8EADA00467292 /* DishesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesModel.swift; sourceTree = "<group>"; };
 		425FA1252AB8EC6400467292 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		425FA1272AB8F99D00467292 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -72,6 +91,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423EBAF62AC0B0C90025FBE2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				423EBAF72AC0B19A0025FBE2 /* Karla-Italic-VariableFont_wght.ttf */,
+				423EBAF82AC0B19A0025FBE2 /* Karla-VariableFont_wght.ttf */,
+				423EBAF22AC0AF270025FBE2 /* MarkaziText-Regular.ttf */,
+				423EBAF42AC0AF2F0025FBE2 /* MarkaziText-VariableFont_wght.ttf */,
+				423EBAEF2AC0AF1C0025FBE2 /* MarkaziText-Bold.ttf */,
+				423EBAEE2AC0AF1C0025FBE2 /* MarkaziText-SemiBold.ttf */,
+				423EBAEB2AC0AD640025FBE2 /* MarkaziText-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		4275DB182AB9B9C500111706 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +126,7 @@
 				4275DB1D2AB9BBDE00111706 /* LittleLemonLogo.swift */,
 				4275DB212AB9FC6900111706 /* Header_section.swift */,
 				4275DB1F2AB9BF5800111706 /* Hero_section.swift */,
+				423EBAFB2AC0B9C70025FBE2 /* section.swift */,
 				425FA1292AB8FB2B00467292 /* Menu.swift */,
 				42636E642ABE5095000787C6 /* FoodItems.swift */,
 				42636E662ABE50BF000787C6 /* MenuItemDetail.swift */,
@@ -107,6 +141,7 @@
 				4275DB262ABA2F1100111706 /* FontStyle.swift */,
 				4275DB282ABA2F4A00111706 /* ColorStyle.swift */,
 				4275DB2A2ABA2F7700111706 /* ButtonStyle.swift */,
+				423EBAE72AC0A5F30025FBE2 /* ImageStyles.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -139,9 +174,11 @@
 		42B588992AB856B100D9711F /* Little Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				423EBAED2AC0AEED0025FBE2 /* Little-Lemon-Info.plist */,
 				42B5889A2AB856B100D9711F /* Little_LemonApp.swift */,
 				425FA1212AB8EADA00467292 /* DishesModel.swift */,
 				4275DB192AB9BA3100111706 /* Views */,
+				423EBAF62AC0B0C90025FBE2 /* Fonts */,
 				4275DB182AB9B9C500111706 /* Core Data */,
 				4275DB252ABA2EBB00111706 /* Styles */,
 				42B5889E2AB856B400D9711F /* Assets.xcassets */,
@@ -217,7 +254,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423EBAF02AC0AF1C0025FBE2 /* MarkaziText-SemiBold.ttf in Resources */,
+				423EBAF52AC0AF2F0025FBE2 /* MarkaziText-VariableFont_wght.ttf in Resources */,
+				423EBAEC2AC0AD640025FBE2 /* MarkaziText-Medium.ttf in Resources */,
+				423EBAF92AC0B19A0025FBE2 /* Karla-Italic-VariableFont_wght.ttf in Resources */,
 				42B588A22AB856B400D9711F /* Preview Assets.xcassets in Resources */,
+				423EBAF12AC0AF1C0025FBE2 /* MarkaziText-Bold.ttf in Resources */,
+				423EBAFA2AC0B19A0025FBE2 /* Karla-VariableFont_wght.ttf in Resources */,
+				423EBAF32AC0AF270025FBE2 /* MarkaziText-Regular.ttf in Resources */,
 				42B5889F2AB856B400D9711F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +275,7 @@
 			files = (
 				42636E672ABE50BF000787C6 /* MenuItemDetail.swift in Sources */,
 				4275DB1E2AB9BBDE00111706 /* LittleLemonLogo.swift in Sources */,
+				423EBAFC2AC0B9C70025FBE2 /* section.swift in Sources */,
 				4275DB272ABA2F1100111706 /* FontStyle.swift in Sources */,
 				4275DB172AB9B9B900111706 /* Persistence.swift in Sources */,
 				425FA12A2AB8FB2B00467292 /* Menu.swift in Sources */,
@@ -239,6 +284,7 @@
 				4275DB242ABA1E0F00111706 /* ChecboxButton.swift in Sources */,
 				425FA12C2AB9037100467292 /* UserProfile.swift in Sources */,
 				42636E632ABE3EF0000787C6 /* Dish+CoreDataProperties.swift in Sources */,
+				423EBAE82AC0A5F30025FBE2 /* ImageStyles.swift in Sources */,
 				425FA1262AB8EC6400467292 /* Onboarding.swift in Sources */,
 				4275DB162AB9B9B900111706 /* FetchedObjects.swift in Sources */,
 				4275DB292ABA2F4A00111706 /* ColorStyle.swift in Sources */,
@@ -381,6 +427,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Little Lemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Little-Lemon-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,6 +456,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Little Lemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Little-Lemon-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

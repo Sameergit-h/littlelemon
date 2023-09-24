@@ -33,8 +33,8 @@ struct UserProfile: View {
                         VStack(alignment: .leading){
                             Text("Personal Information")
                                 .font(.title)
-                            //.padding([.top,.bottom],10)
                                 .padding(.bottom,10)
+                            
                             Text("Avatar")
                                 .font(.headline)
                             

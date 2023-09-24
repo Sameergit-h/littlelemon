@@ -1,7 +1,13 @@
+//
+//  SwiftUIView.swift
+//  Little Lemon
+//
+//  Created by Sameer Ghauri on 24/09/2023.
+//
 
 import SwiftUI
 
-struct Hero_section: View {
+struct section: View {
     var body: some View {
         HStack(alignment: .top){
             VStack(alignment: .leading){
@@ -38,7 +44,7 @@ struct Hero_section: View {
                     
                 }
             }
-                .padding([.leading,.trailing],20)
+                .padding([.leading,.trailing],10)
                 .padding(.bottom,20)
                 //.frame(maxHeight: 250)
                 .background(Color("PrimaryColor1"))
@@ -48,9 +54,3 @@ struct Hero_section: View {
             
     }//body
 }//struct
-
-struct Hero_section_Previews: PreviewProvider {
-    static var previews: some View {
-        Hero_section()
-    }
-}
