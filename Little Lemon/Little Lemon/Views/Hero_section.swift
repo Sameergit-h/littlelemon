@@ -11,6 +11,7 @@ struct Hero_section: View {
                     .frame(alignment: .leading)
                     .padding(.bottom,-20)
                     .foregroundColor(.PrimaryColor2)
+                
                 HStack{
                     VStack(alignment: .leading){
                         
@@ -19,7 +20,6 @@ struct Hero_section: View {
                             .frame(alignment: .leading)
                             .foregroundColor(.white)
                             .padding(.top,-20)
-                            
                         
                         Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
                             .font(.LeadText())
@@ -30,22 +30,16 @@ struct Hero_section: View {
                     
                     Image("Hero image")
                         .resizable()
-                        .frame(maxWidth: 140 ,maxHeight: 140)
+                        .frame(maxWidth: 130 ,maxHeight: 140)
                         .scaledToFill()
                         .cornerRadius(16)
                         .padding(.top,20)
-                    
-                    
                 }
-            }
-                .padding([.leading,.trailing],20)
-                .padding(.bottom,20)
-                //.frame(maxHeight: 250)
-                .background(Color("PrimaryColor1"))
-             //   .ignoresSafeArea()
-            }
-            
-            
+            }//VStack
+            .padding([.leading,.trailing],20)
+            .padding(.bottom,20)
+            .background(Color("PrimaryColor1"))
+        }//HStack
     }//body
 }//struct
 

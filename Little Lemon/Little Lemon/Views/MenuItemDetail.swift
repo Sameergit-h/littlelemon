@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MenuItemDetail: View {
-    
+    @State var Starters = true
     @Environment(\.managedObjectContext) private var viewContext
     
     let  foodList : Dish
     var body: some View {
-        VStack{
+        VStack(){
             
             Header_section(enableBackButton: true)
             AsyncImage(url: URL(string: foodList.image ?? "")){ image in
@@ -25,16 +25,18 @@ struct MenuItemDetail: View {
             
             Text (foodList.title ?? "")
                 .font(.title)
+                .frame(alignment: .leading)
+
             Text(foodList.descriptionText ?? "")
                 .font(.body)
-            
+
             Spacer()
-            
+
             Button(action:
                     {},
                    label: {
-                        Text("Confirm Order")
-                    
+                Text("Add for $\(foodList.price ?? "")")
+                    .font(.custom("Karla-ExtraBold", size: 20))
             })
             .buttonStyle(YellowButton())
         }.toolbar(.hidden)

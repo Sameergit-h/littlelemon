@@ -23,7 +23,7 @@ extension Font {
     }
     static func LeadText() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 18)
+            Font.custom("Karla-Medium", size: 18)
             //.weight(.medium)
             )
     }
@@ -31,37 +31,42 @@ extension Font {
 
     static func SectionTitle() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 20)
+            Font.custom("Karla-ExtraBold", size: 20)
                 .weight(.bold)
             )
     }
     static func SectionCategory() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 16)
+            Font.custom("Karla-Bold", size: 16)
                 .weight(.bold)
             )
     }
     
     static func CardTitle() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 18)
+            Font.custom("Karla-Bold", size: 18)
                 .weight(.bold)
             )
     }
-    static func paragraph() -> Font {
+    static func ParagraphText() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 16)
+            Font.custom("Karla-Regular", size: 16)
                 .weight(.regular)
+                
             )
     }
     static func HighlightText() -> Font {
         return (
-            Font.custom("Karla-VariableFont_wght", size: 18)
+            Font.custom("Karla-ExtraBold", size: 18)
                 .weight(.bold)
             )
     }
    
-    
+    static func OnboardingText() -> Font {
+        return (
+            Font.custom("Karla-Bold", size: 20)
+                .weight(.bold)
+                .bold()
+            )
+    }
 }
-
-

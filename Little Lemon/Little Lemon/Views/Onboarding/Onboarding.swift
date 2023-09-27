@@ -8,6 +8,7 @@
 let kFirstName : String = "key for First"
 let kLastName : String = "key for last"
 let kEmail : String = "key for email"
+let kPhoneNumber: String = "key for phone number"
 let kIsLoggedIn = "kIsLoggedIn"
 
 import SwiftUI
@@ -17,6 +18,7 @@ struct Onboarding: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var email: String = ""
+    @State var phoneNumber: String = ""
     @State var isLoggedIn = false
     
     var body: some View {
@@ -30,22 +32,42 @@ struct Onboarding: View {
                             .padding(.bottom,-30)
                         Hero_section()
                             .frame(alignment: .top)
-                            .padding(.bottom,10)
                         
                         ScrollView(.vertical,showsIndicators: false)
                         {
                             VStack(alignment: .listRowSeparatorLeading){
                                 Text("First Name *")
-                                    .font(.title3)
+                                    .font(.OnboardingText())
+                                    .foregroundColor(.gray)
+                                    .padding(.bottom,10)
+                                
+                                
                                 TextField("First Name", text: $firstName)
+                                
+                                
                                 Text("Last Name *")
                                     .font(.title3)
+                                    .font(.OnboardingText())
+                                    .foregroundColor(.gray)
+                                
                                 TextField("Last Name", text: $lastName)
+                                
                                 Text("Email *")
                                     .font(.title3)
+                                    .font(.OnboardingText())
+                                    .foregroundColor(.gray)
+                                
                                 TextField("Email", text: $email)
+                                
+                                Text("Phone Number")
+                                    .font(.title3)
+                                    .font(.OnboardingText())
+                                    .foregroundColor(.gray)
+                                
+                                TextField("Phone Number", text: $phoneNumber)
+                                
                             }.padding()
-                                .textFieldStyle(.roundedBorder)
+                                .textFieldStyle(InputField())
                             
                             Spacer()
                             
@@ -58,6 +80,7 @@ struct Onboarding: View {
                                     UserDefaults.standard.set(lastName, forKey: kLastName)
                                     UserDefaults.standard.set(email, forKey: kEmail)
                                     isLoggedIn = true
+                                    UserDefaults.standard.set(phoneNumber, forKey: kPhoneNumber)
                                     UserDefaults.standard.set(isLoggedIn, forKey: kIsLoggedIn)
                                     print("button pressed")
                                 }//else
@@ -71,8 +94,6 @@ struct Onboarding: View {
             .navigationDestination(isPresented: $isLoggedIn){
                 Home()
             }
-            
-            
         }//NavigationView
         .onAppear(){
             if ((UserDefaults.standard.bool(forKey: kIsLoggedIn) == true)){
@@ -82,10 +103,8 @@ struct Onboarding: View {
                 isLoggedIn = false
                 print("Else OnAppear")
             }
-            
         }//onAppear
         .navigationBarBackButtonHidden(true)
-        
     }//Body
 }//Struct
 

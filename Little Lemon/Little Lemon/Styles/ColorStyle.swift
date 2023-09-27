@@ -17,4 +17,8 @@ extension Color {
     
     static let HighlightColor1 = Color("HighlightColor1")
     static let HighlightColor2 = Color("HighlightColor2")
+    static let HighlightColor3 = Color("HighlightColor3")
+    static let HighlightColor4 = Color("HighlightColor4")
+    
+    static let WhiteColor = Color("WhiteColor")
 }
