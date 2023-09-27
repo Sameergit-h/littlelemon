@@ -31,8 +31,8 @@ struct Header_section: View {
                         Spacer()
                         if checkIsLoggedIn {
                             NavigationLink(destination: UserProfile(), label: {Image("Profile-image-placeholder").resizable().frame(width: 50,height: 50)})
-                                .padding(.trailing)
                                 .clipShape(Circle())
+                                .padding(.trailing)
                         }
                     }//HStack
                 }//ZStack

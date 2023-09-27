@@ -15,19 +15,20 @@ struct Menu: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     
-    var categories = ["Starters", "Desserts", "Drinks", "Specials"]
+    var categories = ["Starters", "Mains","Desserts", "Drinks"]
     @State var searchText = ""
     @State var isListAdded = false
     
-    @State var isStartersOptionOn = true
-    @State var isDessertsOptionOn = true
-    @State var isDrinksOptionOn = true
-    @State var isSpecialsOptionOn = true
-    
+    @State var isStartersOptionOn = false
+    @State var isDessertsOptionOn = false
+    @State var isDrinksOptionOn = false
+    @State var isMainsOptionOn = false
+    @State var categoryEnable: String = ""
+    // @State var categoriesStates = [isStartersOptionOn,isDessertsOptionOn,$isDrinksOptionOn,isSpecialsOptionOn]
     
     init() {
-            UITextField.appearance().clearButtonMode = .whileEditing
-        }
+        UITextField.appearance().clearButtonMode = .whileEditing
+    }
     
     var body: some View {
         
@@ -47,42 +48,75 @@ struct Menu: View {
                 
                 Text("ORDER FOR DELIVERY!")
                     .font(.SectionTitle())
-                    
+                
                     .padding([.vertical],20)
                     .padding(.horizontal,20)
                     .foregroundColor(.black)
                 
-                ScrollView (.horizontal) {
+                ScrollView (.horizontal,showsIndicators: false) {
                     HStack {
-                        ForEach(categories) { category in
-                            Text(category)
-                                .border(.black)
-                                .padding(.trailing,10)
-                                
+                        
+                        //1
+                        Toggle(isOn: $isStartersOptionOn){
+                            Text("\(categories[0])")
+                        }
+                        .toggleStyle(CategoryToggleButton())
+                        .onChange(of: isStartersOptionOn) {newValue in
+                            categoryCheck(newValue,1)
+                        }
+                        
+                        //2
+                        Toggle(isOn: $isMainsOptionOn){
+                            Text("\(categories[1])")
+                        }
+                        .toggleStyle(CategoryToggleButton())
+                        .onChange(of: isMainsOptionOn) {newValue in
+                            categoryCheck(newValue,2)
+                        }
+                        
+                        //3
+                        Toggle(isOn: $isDessertsOptionOn){
+                            Text("\(categories[2])")
+                        }
+                        .toggleStyle(CategoryToggleButton())
+                        .onChange(of: isDessertsOptionOn) {newValue in
+                            categoryCheck(newValue,3)
+                        }
+                        
+                        //4
+                        Toggle(isOn: $isDrinksOptionOn){
+                            Text("\(categories[3])")
+                        }
+                        .toggleStyle(CategoryToggleButton())
+                        .onChange(of: isDrinksOptionOn) {newValue in
+                            categoryCheck(newValue,4)
                         }
                     }//HStack
                 }//Scrollview
-                .font(.SectionTitle())
+                //.font(.SectionTitle())
                 .padding([.leading,.trailing],20)
                 .padding(.bottom,10)
                 
                 Divider()
+                    .padding([.leading,.trailing],20)
                 
                 //Menu List
-                
+                Spacer()
                 FetchedObjects(predicate: buildPredicate(),sortDescriptors: buildSortDescriptors()){
                     (dishes: [Dish]) in
                     List(){
                         ForEach(dishes, id: \.self){ dish in
-                            NavigationLink(destination: MenuItemDetail(foodList: dish) ) {
-                                FoodItems(foodList: dish)
-                            }
+                            if ((dish.category == categoryEnable) || (!isStartersOptionOn && !isMainsOptionOn && !isDessertsOptionOn && !isDrinksOptionOn)){
+                                
+                                NavigationLink(destination: MenuItemDetail(foodList: dish) ) {
+                                    FoodItems(foodList: dish)
+                                }
+                            }//if
                         }//forEach
                     }//List
                     .listStyle(.plain)
-                    .padding(.leading,-10)
+                    .padding(.leading,10)
                     .padding(.trailing,10)
-                    
                 }//FetchObject
             }//VStack
         }//navigation
@@ -101,7 +135,7 @@ struct Menu: View {
         let littleLemonAddress = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: littleLemonAddress)!
         let request = URLRequest(url: url)
-
+        
         let task = URLSession.shared.dataTask(with: request){ data, response, error in
             if let data = data {
                 let fullMenu = try! JSONDecoder().decode(MenuList.self, from: data)
@@ -129,12 +163,44 @@ struct Menu: View {
     
     private func buildSortDescriptors() -> [NSSortDescriptor] {
         return(
-        [NSSortDescriptor(key: "title",
-                          ascending: true,
-                          selector: #selector(NSString.localizedStandardCompare))]
+            [NSSortDescriptor(key: "title",
+                              ascending: true,
+                              selector: #selector(NSString.localizedStandardCompare))]
         )
-        }//buildSort
-    
+    }//buildSort
+    private func categoryCheck(_ newValue: Bool, _ ToggleButton: Int) {
+        
+        if newValue {
+            switch (ToggleButton){
+                
+            case 1:
+                isMainsOptionOn = false
+                isDessertsOptionOn = false
+                isDrinksOptionOn = false
+                categoryEnable = "starters"
+                
+            case 2:
+                isStartersOptionOn = false
+                isDessertsOptionOn = false
+                isDrinksOptionOn = false
+                categoryEnable = "mains"
+                
+            case 3:
+                isStartersOptionOn = false
+                isMainsOptionOn = false
+                isDrinksOptionOn = false
+                categoryEnable = "desserts"
+                
+            case 4:
+                isStartersOptionOn = false
+                isMainsOptionOn = false
+                isDessertsOptionOn = false
+                categoryEnable = "drinks"
+            default:
+                categoryEnable = ""
+            }
+        }
+    }
 }//struct
 
 extension String: Identifiable {

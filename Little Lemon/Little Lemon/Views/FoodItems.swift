@@ -13,33 +13,41 @@ struct FoodItems: View {
     let foodList : Dish
     
     var body: some View {
-        VStack (alignment: .leading){
-            
-            Text (foodList.title ?? "")
-                .font(.headline)
-                .padding(10)
-            HStack{
-                VStack(alignment: .leading){
-                    Text (foodList.descriptionText ?? "")
-                        .font(.caption)
-                        .padding(10)
-                    Text ("$ \(foodList.price ?? "")")
-                        .bold()
-                        .padding(10)
-                }
+        HStack(alignment: .top){
+            VStack (alignment: .leading){
+                
+                Text (foodList.title ?? "")
+                    .font(.CardTitle())
+                    .foregroundColor(.black)
+                
+                Text (foodList.descriptionText ?? "")
+                    .frame(maxWidth: 300)
+                    .font(.ParagraphText())
+                    .frame(alignment: .leading)
+                    .lineLimit(2)
+                    .foregroundColor(.PrimaryColor1)
+                    .padding([.top,.bottom,.trailing],10)
+                
+                
+                Text ("$ \(foodList.price ?? "")")
+                    .font(.HighlightText())
+                    .foregroundColor(.PrimaryColor1)
+                    .bold()
+            }
+            Spacer()
+            VStack(alignment: .trailing){
                 Spacer()
                 AsyncImage(url: URL(string: foodList.image ?? "")){ image in
                     image.resizable()
-                        .scaledToFill()
-                        
+                        .aspectRatio(contentMode: .fill)
+                    
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: 70, height: 80)
-                
+                .frame(maxWidth: 90, maxHeight: 90)
+                .clipShape(Rectangle())
             }
-        }
+        }.padding([.bottom,.top],10)
     }
 }
-
 

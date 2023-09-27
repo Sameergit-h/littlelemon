@@ -15,8 +15,10 @@ struct YellowButton: ButtonStyle {
             .foregroundColor(configuration.isPressed ? .white : .black)
             .cornerRadius(8)
             .padding()
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
 }
+
 
 struct BackButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -25,12 +27,21 @@ struct BackButton: ButtonStyle {
             .frame(width: 40,height: 40)
             .foregroundColor(.HighlightColor2)
             .clipShape(Circle())
+
     }
 }
 
 struct ChangeButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .frame(width: 90,height: 50)
+            .background(Color(configuration.isPressed ? "HighlightColor2": "PrimaryColor1"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding([.leading,.trailing],6)
+            .bold()
+            
+            //.animation(.easeOut(duration: 0.2), value: configuration.isPressed)
         
     }
 }
@@ -38,34 +49,84 @@ struct ChangeButton: ButtonStyle {
 struct RemoveButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-        
+            .frame(width: 90,height: 50)
+            .background(Color(configuration.isPressed ? "HighlightColor1": "WhiteColor"))
+            .foregroundColor(.HighlightColor2)
+            .border(.black)
+            .padding(.leading,2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color("HighlightColor2"), lineWidth: 1))
     }
 }
 
 struct DiscardChangesButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-        
+            .frame(width: 150,height: 40)
+            .background(Color(configuration.isPressed ? "HighlightColor1": "WhiteColor"))
+            .foregroundColor(.HighlightColor2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color("HighlightColor2"), lineWidth: 1))
+            .padding(.leading,-10)
     }
 }
 
 struct SaveChangesButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-        
+            .frame(width: 140,height: 40)
+            .background(Color(configuration.isPressed ? "HighlightColor2": "PrimaryColor1"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding(.leading,10)
+            .bold()
     }
 }
 
-struct CategoryButton: ButtonStyle {
+struct CategoryToggleButton: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-        
+        Button(action: { configuration.isOn.toggle()},
+               label: {
+                configuration.label
+                .padding(10)
+                .foregroundColor(configuration.isOn ? .HighlightColor3 :.PrimaryColor1)
+                .background(Color(configuration.isOn ? "PrimaryColor1" :"HighlightColor3"))
+                .cornerRadius(16)
+                .bold()
+                .padding([.trailing],5)
+            })
     }
 }
 
-struct ToggleButton: ButtonStyle {
+struct ChecboxButton: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
+        Button(action: { configuration.isOn.toggle()},
+               label: {
+            HStack {
+                Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+                    .foregroundColor(.PrimaryColor1)
+                    .frame(width: 25,height: 25)
+                
+                configuration.label
+                    .foregroundColor(.black)
+
+            }})
+        .padding(.bottom,8)
+    }
+}
+
+struct InputField: TextFieldStyle {
+
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(10)
+            //.border(.gray)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color("HighlightColor2"), lineWidth: 1))
         
     }
+    
 }
