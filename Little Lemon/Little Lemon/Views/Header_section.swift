@@ -1,8 +1,6 @@
 
 import SwiftUI
 
-
-
 struct Header_section: View {
     var checkIsLoggedIn = UserDefaults.standard.bool(forKey: kIsLoggedIn)
     var enableBackButton: Bool
@@ -13,20 +11,24 @@ struct Header_section: View {
             VStack{
                 ZStack{
                     HStack(){
-                    if (enableBackButton){
-                        Button( action:
-                                    {
-                            self.presentationMode.wrappedValue.dismiss()
-                        },
-                                label: {
-                            Image("Back Button")
-                            .frame(width: 40,height: 40)
-                            .foregroundColor(.HighlightColor2)
-                        })
-                        Spacer()
-                    }
+                        
+                        //Back Button
+                        if (enableBackButton){
+                            Button( action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Image("Back Button")
+                                    .frame(width: 40,height: 40)
+                                    .foregroundColor(.HighlightColor2)
+                            })
+                            Spacer()
+                        }
                     }.padding(.leading,10)
+                    
+                    //Logo
                     LittleLemonLogo()
+                    
+                    //Profile
                     HStack{
                         Spacer()
                         if checkIsLoggedIn {

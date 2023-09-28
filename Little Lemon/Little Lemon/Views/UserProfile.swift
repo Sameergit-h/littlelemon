@@ -10,24 +10,18 @@ import SwiftUI
 struct UserProfile: View {
     
     @Environment(\.presentationMode) var presentation
-    @Environment(\.editMode) private var editMode
     
-    let userFirstName : String? = UserDefaults.standard.string(forKey: kFirstName)
-    let userLastName : String? = UserDefaults.standard.string(forKey: kLastName)
-    let userEmail : String? = UserDefaults.standard.string(forKey: kEmail)
-    let userPhoneNumber : String? = UserDefaults.standard.string(forKey: kPhoneNumber)
-    
+    @State var userFirstName = UserDefaults.standard.string(forKey: kFirstName) ?? ""
+    @State var userLastName = UserDefaults.standard.string(forKey: kLastName) ?? ""
+    @State var userEmail = UserDefaults.standard.string(forKey: kEmail) ?? ""
+    @State var userPhoneNumber = UserDefaults.standard.string(forKey: kPhoneNumber) ?? ""
+
     @State private var disableTextField = true
-    @State var orderStatus = false
-    @State var passwordChange = false
-    @State var specialOffer = false
-    @State var newsletter = false
+    @State var checkOrderStatus = UserDefaults.standard.bool(forKey: kOrderStatus)
+    @State var checkPasswordChange = UserDefaults.standard.bool(forKey: kPasswordChange)
+    @State var checkSpecialOffer = UserDefaults.standard.bool(forKey: kSpecialOffer)
+    @State var checkNewsletter = UserDefaults.standard.bool(forKey: kNewsletter)
     @State var userIsLoggedOut = false
-    
-    @State var userName = "John"
-    @State var userName1 = "Doe"
-    @State var userName2 = "JohnDoe@gmail.com"
-    @State var userName3 = "(217) 555-0113)"
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -41,7 +35,7 @@ struct UserProfile: View {
                         
                         VStack(alignment: .leading){
                             Text("Personal information")
-                                .font(.SectionTitle())
+                                .font(.custom("Karla-Bold", size: 24))
                                 .padding(.bottom,10)
                                 .padding(.leading,10)
                             
@@ -65,69 +59,58 @@ struct UserProfile: View {
                             }
                         }.padding(10)
                         
-                        //Details
+                        //Forms Details
                         VStack(alignment: .leading){
                             Text("First name")
                             .foregroundColor(.HighlightColor2)
-                            TextField("",text: $userName)
+                            TextField("",text: $userFirstName)
                                 .textFieldStyle(InputField())
                                 .disabled(disableTextField)
-                            
-                            
-                            
-                            
-                            //TextField("First name", text: userFirstName)
-                            
+
                             Text("Last name")
                                 .padding(.top,20)
                                 .foregroundColor(.HighlightColor2)
                             //Text(userLastName ?? "")
-                            TextField("",text: $userName1)
+                            TextField("",text: $userLastName)
                                 .textFieldStyle(InputField())
                                 .disabled(disableTextField)
-                            
-                            
                             
                             Text("Email")
                                 .padding(.top,20)
                                 .foregroundColor(.HighlightColor2)
-                            TextField("",text: $userName2)
+                            TextField("",text: $userEmail)
                                 .textFieldStyle(InputField())
                                 .disabled(disableTextField)
-                            
-                            //Text(userEmail ?? "")
                             
                             Text("Phone number")
                                 .padding(.top,20)
                                 .foregroundColor(.HighlightColor2)
                             //Text(userLastName ?? "")
-                            TextField("",text: $userName3)
+                            TextField("",text: $userPhoneNumber)
                                 .textFieldStyle(InputField())
-                                .disabled(disableTextField)
-                            
-                            
+
                         }.padding([.leading,.trailing],20)
                         
                         //Email notifications
                         
                         VStack(alignment: .leading){
                             Text("Email notifications")
-                                .font(.CardTitle())
+                                //.font(.SectionTitle())
+                                .font(.custom("Karla-Bold", size: 24))
                                 .padding([.top,.bottom],10)
                             
-                            Toggle(isOn: $orderStatus) { Text("Order statuses") }
+                            Toggle(isOn: $checkOrderStatus) { Text("Order statuses") }
                                 .toggleStyle(ChecboxButton())
                             
-                            Toggle(isOn: $passwordChange) { Text("Password changes")}
+                            Toggle(isOn: $checkPasswordChange) { Text("Password changes")}
                                 .toggleStyle(ChecboxButton())
                             
-                            Toggle(isOn: $specialOffer) { Text("Special offers") }
+                            Toggle(isOn: $checkSpecialOffer) { Text("Special offers") }
                                 .toggleStyle(ChecboxButton())
                             
-                            Toggle(isOn: $newsletter) { Text("Newsletter") }
+                            Toggle(isOn: $checkNewsletter) { Text("Newsletter") }
                                 .toggleStyle(ChecboxButton())
                         }
-                        //.foregroundColor(.black)
                             .padding(20)
                         
                         //Logout and changes save button
@@ -135,11 +118,18 @@ struct UserProfile: View {
                             Button (action:
                                         {
                                 UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+                                UserDefaults.standard.set("", forKey: kFirstName)
+                                UserDefaults.standard.set("", forKey: kLastName)
+                                UserDefaults.standard.set("", forKey: kEmail)
+                                UserDefaults.standard.set("", forKey: kPhoneNumber)
+                                UserDefaults.standard.set(false, forKey: kOrderStatus)
+                                UserDefaults.standard.set(false, forKey: kPasswordChange)
+                                UserDefaults.standard.set(false, forKey: kSpecialOffer)
+                                UserDefaults.standard.set(false, forKey: kNewsletter)
                                 userIsLoggedOut = true
                                 self.presentation.wrappedValue.dismiss()
                                 
-                            }
-                                    ,label: {
+                            }, label: {
                                 Text("Log out")
                                     .bold()
                             })
@@ -147,10 +137,20 @@ struct UserProfile: View {
                             .padding(.bottom,10)
                             
                             HStack(alignment: .center){
-                                Button(action: {}, label:{ Text("Discard changes")})
+                                Button(action:
+                                        {self.presentation.wrappedValue.dismiss()},
+                                       label:{ Text("Discard changes")})
                                     .buttonStyle(DiscardChangesButton())
                                 
-                                Button(action: {}, label:{ Text("Save changes")})
+                                Button(action:
+                                        {
+                                    UserDefaults.standard.set(checkOrderStatus, forKey: kOrderStatus)
+                                    UserDefaults.standard.set(checkPasswordChange, forKey: kPasswordChange)
+                                    UserDefaults.standard.set(checkSpecialOffer, forKey: kSpecialOffer)
+                                    UserDefaults.standard.set(checkNewsletter, forKey: kNewsletter)
+                                    UserDefaults.standard.set(userPhoneNumber, forKey: kPhoneNumber)
+                                    self.presentation.wrappedValue.dismiss()
+                                }, label:{ Text("Save changes")})
                                     .buttonStyle(SaveChangesButton())
                             }
                         }//logout VStack
@@ -158,7 +158,7 @@ struct UserProfile: View {
                 }//ZStack
                 .padding(20)
                 .navigationDestination(isPresented: $userIsLoggedOut){
-                    Onboarding()
+                    OnboardingFirst()
                 }
             }//NavigationStack
         }//Scrollview

@@ -24,7 +24,6 @@ struct Menu: View {
     @State var isDrinksOptionOn = false
     @State var isMainsOptionOn = false
     @State var categoryEnable: String = ""
-    // @State var categoriesStates = [isStartersOptionOn,isDessertsOptionOn,$isDrinksOptionOn,isSpecialsOptionOn]
     
     init() {
         UITextField.appearance().clearButtonMode = .whileEditing
@@ -168,6 +167,7 @@ struct Menu: View {
                               selector: #selector(NSString.localizedStandardCompare))]
         )
     }//buildSort
+    
     private func categoryCheck(_ newValue: Bool, _ ToggleButton: Int) {
         
         if newValue {
@@ -200,7 +200,7 @@ struct Menu: View {
                 categoryEnable = ""
             }
         }
-    }
+    }//categoryCheck
 }//struct
 
 extension String: Identifiable {
