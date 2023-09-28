@@ -13,7 +13,7 @@ struct MenuItem: Decodable {
     let price: String
     let image: String
     let category: String
-
+    
     enum CodingKeys: String, CodingKey{
         case title = "title"
         case descriptionText = "description"

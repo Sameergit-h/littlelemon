@@ -4,6 +4,7 @@
 //
 //  Created by Sameer Ghauri on 19/09/2023.
 //
+
 import Foundation
 import SwiftUI
 import CoreData
@@ -16,25 +17,25 @@ struct Home: View {
     @State var searchText = ""
     
     var body: some View {
-
-                NavigationStack{
+        
+        NavigationStack{
+            VStack(alignment: .leading){
+                VStack(){
+                    Header_section(enableBackButton: false)
+                        .padding(.bottom,-30)
+                    
                     VStack(alignment: .leading){
-                        VStack(){
-                            Header_section(enableBackButton: false)
-                                .padding(.bottom,-30)
-                            
-                            VStack(alignment: .leading){
-                                Hero_section()
-                                    .frame(alignment: .topLeading)
-                                    .padding(.bottom,-10)
-                            }
-                        }
-                        Menu()
-                            .environment(\.managedObjectContext, persistence.container.viewContext)
+                        Hero_section()
+                            .frame(alignment: .topLeading)
+                            .padding(.bottom,-10)
                     }
-                }//Navigation
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
+                }
+                Menu()
+                    .environment(\.managedObjectContext, persistence.container.viewContext)
+            }
+        }//Navigation
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }//body
 }//struct
 

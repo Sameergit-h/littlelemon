@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct FoodItems: View {
     let foodList : Dish
     
@@ -27,7 +25,6 @@ struct FoodItems: View {
                     .lineLimit(2)
                     .foregroundColor(.PrimaryColor1)
                     .padding([.top,.bottom,.trailing],10)
-                
                 
                 Text ("$ \(foodList.price ?? "")")
                     .font(.HighlightText())

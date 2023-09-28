@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MenuItemDetail: View {
-    @State var Starters = true
-    @Environment(\.managedObjectContext) private var viewContext
     
+    @Environment(\.managedObjectContext) private var viewContext
     let  foodList : Dish
+    
     var body: some View {
         VStack(){
             
@@ -26,12 +26,12 @@ struct MenuItemDetail: View {
             Text (foodList.title ?? "")
                 .font(.title)
                 .frame(alignment: .leading)
-
+            
             Text(foodList.descriptionText ?? "")
                 .font(.body)
-
+            
             Spacer()
-
+            
             Button(action:
                     {},
                    label: {
